@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: student-placement-api
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI
+        sync: false # Set securely in Render Dashboard
+      - key: JWT_SECRET
+        sync: false # Set securely in Render Dashboard
+      - key: SESSION_SECRET
+        sync: false # Set securely in Render Dashboard
+      - key: FRONTEND_URL
+        sync: false # Example: https://your-frontend.vercel.app
+      - key: NODE_ENV
+        value: production
