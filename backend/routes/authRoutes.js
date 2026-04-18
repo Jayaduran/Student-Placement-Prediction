@@ -4,7 +4,11 @@ const { register, login, oauthCallback, getMe } = require('../controllers/authCo
 const passport = require('passport');
 const { auth } = require('../middlewares/auth');
 
-const frontendBaseUrl = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL || 'http://localhost:5173')
+const defaultFrontendUrl = process.env.NODE_ENV === 'production'
+	? 'https://student-placement-prediction-seven.vercel.app'
+	: 'http://localhost:5173';
+
+const frontendBaseUrl = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL || defaultFrontendUrl)
 	.split(',')
 	.map((origin) => origin.trim())
 	.find(Boolean);

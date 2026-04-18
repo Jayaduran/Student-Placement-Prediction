@@ -36,11 +36,7 @@ const mongoUri = sanitizeMongoUri(mongoEnvValue);
 const fallbackOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
-  'https://placement-prediction-git-main-jayadurans-projects.vercel.app',
-  'https://placement-prediction-bmpjebrra-jayadurans-projects.vercel.app',
-  'https://placement-prediction.vercel.app',
-  'https://placement-prediction-eogpnn2q9-jayadurans-projects.vercel.app',
-  'https://placement-prediction-theta.vercel.app'
+  'https://student-placement-prediction-seven.vercel.app'
 ];
 
 const configuredOrigins = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL || '')
@@ -51,7 +47,7 @@ const configuredOrigins = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL
 const allowedOrigins = Array.from(new Set([...fallbackOrigins, ...configuredOrigins]));
 
 const isAllowedVercelPreview = (origin) => (
-  /^https:\/\/placement-prediction-[a-z0-9-]+-jayadurans-projects\.vercel\.app$/i.test(origin)
+  /^https:\/\/(placement-prediction|student-placement-prediction)-[a-z0-9-]+-jayadurans-projects\.vercel\.app$/i.test(origin)
 );
 
 /* =========================
